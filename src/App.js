@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { auth } from "./firebase/firebase.utils";
+import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 
 import Header from "./components/header/header.component";
 import HomePage from "./pages/homepage/homepage.component";
@@ -15,15 +15,29 @@ class App extends React.Component {
 
     this.state = {
       currentUser: null,
-    }
+    };
   }
 
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({ currentUser: user });
-      console.log("user:",user);
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+      console.log("componentDidMount - auth state change:", userAuth);
+      if (!!userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+
+        userRef.onSnapshot((snapShot) => {
+          this.setState(
+            {
+              currentUser: { id: snapShot.id, ...snapShot.data() },
+            },
+            () => {
+              console.log("componentDidMount - user:",this.state);
+            }
+          );
+        });
+      }
+      this.setState({ currentUser: userAuth }, console.log("componentDidMount - no user:",this.state));
     });
   }
 
