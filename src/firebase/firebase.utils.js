@@ -11,6 +11,8 @@ const config = {
   appId: "1:46005818760:web:8ae65020fac71e75e4563d",
 };
 
+firebase.initializeApp(config);
+
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!!!userAuth) return;
 
@@ -28,7 +30,6 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         createdAt,
         ...additionalData,
       });
-      console.log("user doesn't exist, new user created:", email);
     } catch (error) {
       console.log("error creating user", error.message);
     }
@@ -36,8 +37,6 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
   return userRef;
 };
-
-firebase.initializeApp(config);
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();

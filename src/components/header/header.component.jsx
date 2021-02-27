@@ -6,8 +6,6 @@ import { auth } from "../../firebase/firebase.utils";
 import "./header.styles.scss";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 
-// https://thumbs.dreamstime.com/t/crown-icon-vector-black-white-background-47049361.jpg
-
 const Header = ({ currentUser }) => (
   <div className="header">
     <Link className="logo-container" to="/">
