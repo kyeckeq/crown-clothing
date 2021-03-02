@@ -35,7 +35,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log("currentUser:", this.props);
     return (
       <div className="App">
         <Header />
@@ -59,8 +58,8 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser,
+const mapStateToProps = ({ user: currentUser }) => ({
+  currentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({

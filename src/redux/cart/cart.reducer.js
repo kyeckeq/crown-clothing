@@ -16,17 +16,8 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         ...state,
         cartItems: addItemToCart(state.cartItems, action.payload),
       };
-    // const idx = state.cartItems.findIndex(
-    //   (item) => item.id === action.payload.id
-    // );
-    // if (idx !== -1) {
-    //   state.cartItems[idx].count++;
-    //   return { ...state, cartItems: [...state.cartItems] };
-    // }
-    // action.payload.count = 1;
-    // return { ...state, cartItems: [...state.cartItems, action.payload] };
 
-    default:
+      default:
       return state;
   }
 };
