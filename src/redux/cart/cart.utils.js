@@ -29,16 +29,3 @@ export const deleteItemFromCart = (cartItems, cartItemToDelete) => {
 
   return [...cartItems];
 };
-
-export const removeItemFromCart = (cartItems, cartItemToRemove) => {
-  console.log("removeItemFromCart:", cartItemToRemove);
-  const existingCartItem = cartItems.find(
-    (cartItem) => cartItem.id === cartItemToRemove.id
-  );
-
-  if (existingCartItem) {
-    return cartItems.map((cartItem) => cartItem.id !== cartItemToRemove.id);
-  }
-
-  return [...cartItems];
-};
