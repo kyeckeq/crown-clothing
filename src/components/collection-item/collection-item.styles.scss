@@ -1,7 +1,8 @@
 .collection-item {
-    width: 22%;
+    width: 22vw; // 22% - percent of containing div width; 22vw - percent of width of actual window
     display: flex;
     flex-direction: column;
+    min-width: 350px;
     height: 350px;
     align-items: center;
     position: relative;
