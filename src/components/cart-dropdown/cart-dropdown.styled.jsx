@@ -22,7 +22,7 @@ export const CartItemsContainer = styled.div`
    overflow-x: hidden;
 `;
 
-export const EmptyMessage = styled.span`
+export const EmptyMessageContainer = styled.span`
    font-size: 18px;
    margin: 50px auto;
 `;
