@@ -1,3 +1,5 @@
-export const ShopActionTypes = {
-    LOAD_SHOP_DATA: 'LOAD_SHOP_DATA',
+const ShopActionTypes = {
+   UPDATE_COLLECTIONS: 'UPDATE_COLLECTIONS'
 };
+
+export default ShopActionTypes;
