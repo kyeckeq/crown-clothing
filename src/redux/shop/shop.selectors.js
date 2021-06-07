@@ -19,6 +19,11 @@ export const selectCollection = memoize((collectionUrlParam) =>
   )
 );
 
+export const selectIsCollectionFetching = createSelector(
+ [selectShop],
+ (shop) => shop.isFetching
+);
+
 // Alternative to selectCollection above:
 // const selectCollectionId = (state, props) => props.match.params.collectionId;
 
