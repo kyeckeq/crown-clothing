@@ -9,7 +9,8 @@ import './shop.styles.scss';
 
 class ShopPage extends React.Component {
    componentDidMount() {
-      this.props.fetchCollectionsStart();
+      const { fetchCollectionsStart } = this.props;
+      fetchCollectionsStart();
    }
 
    render() {

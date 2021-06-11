@@ -16,7 +16,6 @@ import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up
 import './App.css';
 
 class App extends React.Component {
-   unsubscribeFromAuth = null;
 
    componentDidMount() {
       const { checkUserSession } = this.props;
@@ -24,7 +23,6 @@ class App extends React.Component {
    }
 
    componentWillUnmount() {
-      this.unsubscribeFromAuth();
    }
 
    render() {
